@@ -702,5 +702,3 @@ function amp_add_user_row( $cells, $keyword ) {
 
 	return $cells;
 }
-
-?>
