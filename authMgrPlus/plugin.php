@@ -366,7 +366,7 @@ yourls_add_filter( 'api_url_stats', 'amp_api_url_stats' );
 function amp_api_url_stats( $return, $shorturl ) {
 
 	$keyword = str_replace( YOURLS_SITE . '/' , '', $shorturl ); // accept either 'http://ozh.in/abc' or 'abc'
-	$keyword = yourls_sanitize_string( $keyword );
+	$keyword = yourls_sanitize_keyword( $keyword );
 	$keyword = addslashes($keyword);
 
 	if( ( !defined('YOURLS_PRIVATE_INFOS') || YOURLS_PRIVATE_INFOS !== false ) 
