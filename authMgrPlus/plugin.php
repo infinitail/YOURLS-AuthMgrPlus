@@ -674,6 +674,11 @@ function array_insert($array, $position, $insert_array) {
 
 yourls_add_filter('table_head_cells', 'amp_username_table_head');
 function amp_username_table_head( $cells ) {
+	// Hide "Username" column from non Admin user
+	if (! amp_user_has_role(YOURLS_USER, ampRoles::Administrator)) {
+		return $cells;
+	}
+	
 	$user_head = array( 'username' => 'Username' );
 	$cells = array_insert($cells, 5, $user_head);
 	return $cells;
@@ -681,6 +686,11 @@ function amp_username_table_head( $cells ) {
 
 yourls_add_filter('table_add_row_cell_array', 'amp_add_user_row');
 function amp_add_user_row( $cells, $keyword ) {
+	// Hide "Username" column from non Admin user
+	if (! amp_user_has_role(YOURLS_USER, ampRoles::Administrator)) {
+		return $cells;
+	}
+	
 	$username = amp_keyword_owner($keyword);
 	$user_cell = array(
 		'username' => array(
