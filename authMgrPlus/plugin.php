@@ -207,12 +207,11 @@ function amp_admin_sublinks( $links ) {
 			}
 		}
 		sort($links['plugins']);
-	}
 
-	
-	// Hide plugin manage group if no managable plugin
-	if (count($links['plugins']) === 0) {
-	    echo '<style>li#admin_menu_plugins_link {display: none}</style>';
+		// Hide plugin manage group if no managable plugin
+		if (count($links['plugins']) === 0) {
+		    echo '<style>li#admin_menu_plugins_link {display: none}</style>';
+		}
 	}
 
 	return $links;
